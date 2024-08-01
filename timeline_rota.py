@@ -1,5 +1,5 @@
 import streamlit as st
-import streamlit.components.v1 as components
+from streamlit_timeline import st_timeline
 
 st.set_page_config(layout="wide")
 st.title("Línea temporal de Libros y Películas de Ciencia Ficción.")
@@ -16,31 +16,14 @@ items = [
     {"id": 6, "content": "Do Androids Dream of Electric Sheep?", "start": "1968-01-01", "title": "The basis for the film 'Blade Runner.'"}
 ]
 
-# Convert items to JSON format
-import json
-items_json = json.dumps(items)
+# Create the timeline
+timeline = st_timeline(items, groups=[], options={"editable": False}, height="400px")
 
-# HTML and JavaScript to render the timeline
-html_code = f"""
-<!DOCTYPE html>
-<html>
-<head>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <div id="visualization"></div>
-    <script type="text/javascript">
-        var container = document.getElementById('visualization');
-        var items = new vis.DataSet({items_json});
-        var options = {{
-            editable: false
-        }};
-        var timeline = new vis.Timeline(container, items, options);
-    </script>
-</body>
-</html>
-"""
-
-# Render the HTML and JavaScript
-components.html(html_code, height=400)
+# Display details of the selected movie
+st.subheader("Selected Movie")
+if timeline:
+    selected_movie = next((item for item in items if item["id"] == timeline), None)
+    if selected_movie:
+        st.write(f"**Title:** {selected_movie['content']}")
+        st.write(f"**Release Date:** {selected_movie['start']}")
+        st.write(f"**Description:** {selected_movie['title']}")
