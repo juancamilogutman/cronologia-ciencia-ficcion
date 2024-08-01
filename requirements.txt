@@ -30,6 +30,7 @@ pyarrow @ file:///C:/b/abs_cbc4sg_1e0/croot/pyarrow_1721664257308/work/python
 pydeck @ file:///C:/b/abs_ad9p880wi1/croot/pydeck_1706194121328/work
 Pygments @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/pygments_1699474141968/work
 PySocks @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/pysocks_1699473336188/work
+python==3.12.4
 python-dateutil @ file:///C:/b/abs_3au_koqnbs/croot/python-dateutil_1716495777160/work
 pytz @ file:///C:/b/abs_6ap4tsz1ox/croot/pytz_1713974360290/work
 PyYAML @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/pyyaml_1699479991712/work
