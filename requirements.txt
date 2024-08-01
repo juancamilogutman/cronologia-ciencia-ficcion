@@ -1,0 +1,2 @@
+streamlit==1.32.0
+streamlit_vis_timeline==0.3.0
